@@ -40,3 +40,8 @@ CREATE TABLE medical_histories_treatments (
     medical_historie_id int REFERENCES medical_histories(id),
     treatment_id int REFERENCES treatments(id),
 );
+
+ALTER TABLE invoice_items ADD INDEX (invoice_id), ADD INDEX (treatment_id);
+ALTER TABLE medical_histories_treatments ADD INDEX (medical_historie_id), ADD INDEX (treatment_id);
+ALTER TABLE invoices ADD INDEX (medical_history_id);
+ALTER TABLE medical_histories ADD INDEX (patient_id);
