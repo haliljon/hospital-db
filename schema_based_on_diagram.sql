@@ -18,3 +18,25 @@ CREATE TABLE medical_histories (
     status varchar(100),
     patient_id int REFERENCES patients(id),
 );
+
+CREATE TABLE invoices (
+    id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
+    total_amount decimal,
+    genrated_at timestamp,
+    payed_at timestamp,
+    medical_history_id int REFERENCES medical_histories(id),
+);
+
+CREATE TABLE invoice_items (
+    id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
+    unit_price decimal,
+    quantity int,
+    total_price decimal,
+    invoice_id int REFERENCES invoices(id),
+    treatment_id int REFERENCES treatments(id),
+);
+
+CREATE TABLE medical_histories_treatments (
+    medical_historie_id int REFERENCES medical_histories(id),
+    treatment_id int REFERENCES treatments(id),
+);
