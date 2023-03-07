@@ -82,7 +82,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/haliljon/schema-to-database.git
+  git clone https://github.com/haliljon/hospital-db.git
 
   cd vet_clinic
 ```
